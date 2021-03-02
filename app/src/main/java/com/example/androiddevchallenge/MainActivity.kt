@@ -110,7 +110,8 @@ fun PuppyCard(puppy: Puppy, modifier: Modifier = Modifier, onClick: () -> Unit) 
             .clip(RoundedCornerShape(4.dp))
             .background(MaterialTheme.colors.surface)
             .clickable(onClick = onClick)
-            .padding(16.dp)) {
+            .padding(16.dp)
+    ) {
         Image(
             painter = painterResource(id = puppy.imageResId),
             contentDescription = "puppy",
@@ -141,21 +142,26 @@ fun PuppyDetail(navController: NavController, index: Int?) {
         topBar = {
             TopAppBar(
                 title = { Text(text = "Foster parent recruitment") },
-                navigationIcon = { IconButton(onClick = { navController.popBackStack() }) {
-                    Icon(Icons.Rounded.ArrowBack, contentDescription = "back")
-                }}
+                navigationIcon = {
+                    IconButton(onClick = { navController.popBackStack() }) {
+                        Icon(Icons.Rounded.ArrowBack, contentDescription = "back")
+                    }
+                }
             )
         }
     ) {
         Surface(color = MaterialTheme.colors.background) {
-            Column(modifier = Modifier
-                .padding(16.dp)
-                .verticalScroll(rememberScrollState())
+            Column(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .verticalScroll(rememberScrollState())
             ) {
                 Image(
                     painter = painterResource(id = puppy.imageResId),
                     contentDescription = "puppy",
-                    modifier = Modifier.padding(bottom = 16.dp).clip(RoundedCornerShape(8.dp))
+                    modifier = Modifier
+                        .padding(bottom = 16.dp)
+                        .clip(RoundedCornerShape(8.dp))
                 )
                 CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.medium) {
                     Text(text = puppy.name, style = MaterialTheme.typography.body1)
