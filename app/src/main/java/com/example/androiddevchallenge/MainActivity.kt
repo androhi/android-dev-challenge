@@ -85,7 +85,7 @@ fun PuppyList(navController: NavController, puppyList: List<Puppy>, modifier: Mo
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Lost puppies") }
+                title = { Text(text = "Foster parent recruitment") }
             )
         }
     ) {
@@ -140,7 +140,7 @@ fun PuppyDetail(navController: NavController, index: Int?) {
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Lost puppies") },
+                title = { Text(text = "Foster parent recruitment") },
                 navigationIcon = { IconButton(onClick = { navController.popBackStack() }) {
                     Icon(Icons.Rounded.ArrowBack, contentDescription = "back")
                 }}
